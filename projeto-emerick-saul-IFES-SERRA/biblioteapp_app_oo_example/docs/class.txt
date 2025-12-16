@@ -1,0 +1,31 @@
+class usuario {
+        +int id
+        +str nome
+        +str email
+
+    }
+class aluno(usuário) {
+        +str matricula_aluno
+
+    }
+class professor(usuário) {
+        +str matricula_professor
+
+    }
+class ResultadoRepository {
+        -connection db
+        +create_table()
+        +add_resultado(resultado: Resultado)
+        +get_all_resultados() : List[Resultados]
+        +delete_resultado(id: int)
+    }
+
+class LibraryService {
+        -repository: ResultadoRepository
+        +register_resultado(Nome do data point,Tempo,Valor,Processado,Comentário)
+        +list_resultados()
+        +remove_resultado(id)
+    }
+
+LibraryService --> ResultadoRepository : usa
+ResultadoRepository --> Resultado : manipula
